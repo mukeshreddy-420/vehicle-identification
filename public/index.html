@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vehicle Identity & Insurance Verification</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <div>
+          <h1>Vehicle Identity Platform</h1>
+          <p class="subtitle">
+            Authorize connected-vehicle interactions using identity, ownership, and insurance validity.
+          </p>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="card verify-card">
+          <h2>Authorization</h2>
+          <p class="helper-text">
+            Use any identifier (vehicle ID, VIN, or plate number) to authorize a vehicle.
+          </p>
+          <form id="verify-form">
+            <div class="field-row">
+              <label for="identifier">Vehicle ID / VIN / Plate</label>
+              <input
+                id="identifier"
+                name="identifier"
+                placeholder="e.g. veh-1 or VIN-ABC-123 or KA01AB1234"
+              />
+            </div>
+            <button type="submit" class="primary-btn">
+              Run Authorization Check
+            </button>
+          </form>
+
+          <div id="verify-result" class="verify-result hidden"></div>
+        </section>
+
+        <section class="card">
+          <h2>Identity Registry</h2>
+          <p class="helper-text">
+            Registry snapshot used by the authorization gateway.
+          </p>
+
+          <div class="tabs">
+            <button class="tab active" data-tab="vehicles">Vehicles</button>
+            <button class="tab" data-tab="owners">Owners</button>
+            <button class="tab" data-tab="policies">Insurance</button>
+          </div>
+
+          <div class="tab-panel" id="tab-vehicles"></div>
+          <div class="tab-panel hidden" id="tab-owners"></div>
+          <div class="tab-panel hidden" id="tab-policies"></div>
+
+          <div class="manage-vehicle">
+            <h3>Manage vehicles</h3>
+            <p class="helper-text">
+              Add a new vehicle or update an existing one in memory.
+            </p>
+            <form id="vehicle-form">
+              <div class="field-row">
+                <label for="form-vehicle-id">Vehicle ID (optional for new)</label>
+                <input
+                  id="form-vehicle-id"
+                  name="form-vehicle-id"
+                  placeholder="e.g. veh-4"
+                />
+              </div>
+              <div class="field-row">
+                <label for="form-vin">VIN</label>
+                <input id="form-vin" name="form-vin" placeholder="e.g. VIN-NEW-001" />
+              </div>
+              <div class="field-row">
+                <label for="form-plateNumber">Plate Number</label>
+                <input
+                  id="form-plateNumber"
+                  name="form-plateNumber"
+                  placeholder="e.g. KA09XY9999"
+                />
+              </div>
+              <div class="field-row">
+                <label for="form-ownerId">Owner ID</label>
+                <input
+                  id="form-ownerId"
+                  name="form-ownerId"
+                  placeholder="e.g. owner-1"
+                />
+              </div>
+              <div class="field-row">
+                <label for="form-status">Status</label>
+                <select id="form-status" name="form-status">
+                  <option value="active" selected>active</option>
+                  <option value="revoked">revoked</option>
+                </select>
+              </div>
+              <button type="submit" class="primary-btn">
+                Save vehicle
+              </button>
+            </form>
+            <p id="vehicle-form-message" class="helper-text"></p>
+          </div>
+
+          <div class="manage-policy">
+            <h3>Manage insurance policies</h3>
+            <p class="helper-text">
+              Add or update insurance records associated with vehicles.
+            </p>
+            <form id="policy-form">
+              <div class="field-row">
+                <label for="form-policy-id">Policy ID (optional for new)</label>
+                <input
+                  id="form-policy-id"
+                  name="form-policy-id"
+                  placeholder="e.g. pol-4"
+                />
+              </div>
+              <div class="field-row">
+                <label for="form-policy-vehicleId">Vehicle ID</label>
+                <input
+                  id="form-policy-vehicleId"
+                  name="form-policy-vehicleId"
+                  placeholder="e.g. veh-1"
+                />
+              </div>
+              <div class="field-row">
+                <label for="form-providerName">Provider name</label>
+                <input
+                  id="form-providerName"
+                  name="form-providerName"
+                  placeholder="e.g. SecureDrive Insurance"
+                />
+              </div>
+              <div class="field-row">
+                <label for="form-policyNumber">Policy number</label>
+                <input
+                  id="form-policyNumber"
+                  name="form-policyNumber"
+                  placeholder="e.g. SD-2027-1234"
+                />
+              </div>
+              <div class="field-row">
+                <label for="form-validFrom">Valid from (ISO date)</label>
+                <input
+                  id="form-validFrom"
+                  name="form-validFrom"
+                  placeholder="e.g. 2026-01-01"
+                />
+              </div>
+              <div class="field-row">
+                <label for="form-validTo">Valid to (ISO date)</label>
+                <input
+                  id="form-validTo"
+                  name="form-validTo"
+                  placeholder="e.g. 2027-01-01"
+                />
+              </div>
+              <div class="field-row">
+                <label for="form-policy-status">Status</label>
+                <select id="form-policy-status" name="form-policy-status">
+                  <option value="active" selected>active</option>
+                  <option value="suspended">suspended</option>
+                  <option value="inactive">inactive</option>
+                </select>
+              </div>
+              <div class="field-row">
+                <label>
+                  <input type="checkbox" id="form-connected" name="form-connected" />
+                  Connected services covered
+                </label>
+              </div>
+              <button type="submit" class="primary-btn">
+                Save policy
+              </button>
+            </form>
+            <p id="policy-form-message" class="helper-text"></p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+  </html>
+
