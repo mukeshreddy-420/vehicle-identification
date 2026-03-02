@@ -197,21 +197,7 @@ This is the main authorization gateway endpoint.
 
 ---
 
-## 🖥 Frontend Features
 
-The UI allows you to:
-
-### 🔍 Run Authorization Checks
-
-* Enter vehicle ID, VIN, or plate number
-* View:
-
-  * Authorization decision
-  * Reasons
-  * Active policy count
-  * Detailed breakdown
-
----
 
 ### 📊 View Registry
 
@@ -224,21 +210,6 @@ Tabs for:
 Status indicators use color-coded badges for clarity.
 
 ---
-
-### 🛠 Manage Data in Real Time
-
-You can:
-
-* Add new vehicles
-* Update existing vehicles
-* Add insurance policies
-* Modify policy status or validity
-
-Changes immediately affect authorization decisions.
-
----
-
-## 🎬 Demo Scenarios
 
 ### ✅ Fully Compliant Vehicle
 
@@ -285,15 +256,6 @@ npm -v
 
 If not installed, download from:
 [https://nodejs.org](https://nodejs.org)
-
----
-
-### 2️⃣ Open Project in VS Code
-
-```
-File → Open Folder
-Select: C:\Users\mukes\OneDrive\Desktop\vehicle
-```
 
 ---
 
@@ -349,24 +311,8 @@ CTRL + C
 * Static frontend
 * In-memory registry
 
-### Architectural Principles
-
-* Clear separation of:
-
-  * Data model
-  * Authorization logic
-  * API layer
-  * UI layer
-* Transparent decision-making
-* Extensible authorization framework
-
-### Business Value
-
-* Identity-based vehicle authorization
-* Policy-aware access control
-* Clear compliance reasoning
-* Real-time policy simulation
 
 
 This project is for academic and demonstration purposes.
 pac
+
