@@ -1,6 +1,6 @@
-# 🚗 Vehicle, Owner & Insurance Identity Management Platform
+#  Vehicle, Owner & Insurance Identity Management Platform
 
-## 📌 Overview
+##  Overview
 
 This project implements a lightweight **Vehicle Identity & Authorization Platform** designed to answer one core business question:
 
@@ -8,15 +8,15 @@ This project implements a lightweight **Vehicle Identity & Authorization Platfor
 
 The system evaluates:
 
-* ✅ Vehicle identity
-* ✅ Ownership status
-* ✅ Insurance coverage (including connected-services eligibility and validity window)
+*  Vehicle identity
+*  Ownership status
+*  Insurance coverage (including connected-services eligibility and validity window)
 
 It acts as a **mini authorization gateway** in front of a connected-vehicle ecosystem, deciding whether to allow or block vehicle access based on identity and policy rules.
 
 ---
 
-## 🏗 Architecture
+##  Architecture
 
 The solution is built using:
 
@@ -40,54 +40,6 @@ The system consists of:
    * Displays registry data
    * Runs authorization checks
    * Allows live creation and updates of vehicles and policies
-
----
-
-## 📂 Data Model
-
-The system manages three identity domains:
-
-### 👤 Owners
-
-Each owner contains:
-
-* `ownerId`
-* `name`
-* `email`
-* `status` (active / inactive)
-
-If an owner is not active, their vehicles cannot be authorized.
-
----
-
-### 🚘 Vehicles
-
-Each vehicle contains:
-
-* `vehicleId`
-* `vin`
-* `plateNumber`
-* `ownerId`
-* `status` (active / revoked)
-
-Vehicles are the primary entity evaluated for authorization.
-
----
-
-### 🛡 Insurance Policies
-
-Each policy contains:
-
-* `policyId`
-* `vehicleId`
-* `provider`
-* `policyNumber`
-* `validFrom`
-* `validTo`
-* `status` (active / suspended / inactive)
-* `coversConnectedServices` (true / false)
-
-A vehicle must have a currently valid and active insurance policy covering connected services to be authorized.
 
 ---
 
@@ -117,14 +69,14 @@ When a request is made to verify a vehicle, the backend performs the following c
      * Be within validity dates
      * Cover connected services
 
-### ✅ If all checks pass:
+###  If all checks pass:
 
 ```
 authorized = true
 reason = "All checks passed."
 ```
 
-### ❌ If any check fails:
+###  If any check fails:
 
 ```
 authorized = false
@@ -142,9 +94,9 @@ This makes the decision process transparent and auditable.
 
 ---
 
-## 🌐 API Endpoints
+##  API Endpoints
 
-### 📌 GET `/api/registry`
+###  GET `/api/registry`
 
 Returns all:
 
@@ -154,7 +106,7 @@ Returns all:
 
 ---
 
-### 📌 POST `/api/vehicles/upsert`
+###  POST `/api/vehicles/upsert`
 
 Creates or updates a vehicle.
 
@@ -166,7 +118,7 @@ Requirements:
 
 ---
 
-### 📌 POST `/api/policies/upsert`
+###  POST `/api/policies/upsert`
 
 Creates or updates an insurance policy.
 
@@ -177,7 +129,7 @@ Requirements:
 
 ---
 
-### 📌 POST `/api/verify`
+###  POST `/api/verify`
 
 Verifies authorization.
 
@@ -198,20 +150,7 @@ This is the main authorization gateway endpoint.
 ---
 
 
-
-### 📊 View Registry
-
-Tabs for:
-
-* Vehicles
-* Owners
-* Insurance Policies
-
-Status indicators use color-coded badges for clarity.
-
----
-
-### ✅ Fully Compliant Vehicle
+###  Fully Compliant Vehicle
 
 * Active vehicle
 * Active owner
@@ -220,21 +159,21 @@ Status indicators use color-coded badges for clarity.
 
 ---
 
-### ❌ Suspended Policy
+###  Suspended Policy
 
 * Policy status = suspended
   → Result: **Blocked**
 
 ---
 
-### ❌ Expired Policy
+###  Expired Policy
 
 * validTo date in the past
   → Result: **Blocked**
 
 ---
 
-### ➕ Add New Vehicle Without Insurance
+###  Add New Vehicle Without Insurance
 
 → Blocked
 
@@ -243,9 +182,9 @@ Add valid policy →
 
 ---
 
-## ⚙️ How To Run (Windows + VS Code)
+##  How To Run (Windows + VS Code)
 
-### 1️⃣ Install Node.js
+###  Install Node.js
 
 Check installation:
 
@@ -259,7 +198,7 @@ If not installed, download from:
 
 ---
 
-### 3️⃣ Install Dependencies
+###  Install Dependencies
 
 In VS Code terminal:
 
@@ -269,7 +208,7 @@ npm install
 
 ---
 
-### 4️⃣ Start Server
+###  Start Server
 
 ```
 npm start
@@ -283,7 +222,7 @@ Server listening on port 3000
 
 ---
 
-### 5️⃣ Open Browser
+###  Open Browser
 
 Navigate to:
 
@@ -293,7 +232,7 @@ http://localhost:3000
 
 ---
 
-### 6️⃣ Stop Server
+###  Stop Server
 
 Press:
 
@@ -302,8 +241,6 @@ CTRL + C
 ```
 
 ---
-
-## 🧠 Solution Summary
 
 ### Technology Choice
 
@@ -315,4 +252,5 @@ CTRL + C
 
 This project is for academic and demonstration purposes.
 pac
+
 
