@@ -1,0 +1,19 @@
+{
+  "name": "vehicle-identity-platform",
+  "version": "1.0.0",
+  "description": "Vehicle, Owner & Insurance Identity Management demo",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "vehicle",
+    "identity",
+    "insurance"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
